@@ -1,5 +1,13 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+function shoppingList(){
+ this.groceries = [];
+}
 
-import { AppModule } from './app/app.module';
+shoppingList.prototype.addItem = function (item) {
+  this.groceries = this.groceries.concat([item]);
+};
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+var mylist = shoppingList();
+
+mylist.addItem('banana');
+
+console.log(mylist.groceries);
